@@ -22,11 +22,11 @@ message: Any string, note that messages longer than 160 characters are split up 
 Feel free to spend as much or as little time on the exercise as you like as long as the following requirements have been met.
 
 * Please complete the task described below.
-* Feel free to persist data however you like.  This project is configured to use SQLite
-* You must include some tests, but complete test coverage is not required.
+* Feel free to persist data however you like.  This project is configured to use SQLite if you need a database.
+* Please include some tests. Complete test coverage is not required.
  
 ## Task Description
-As a user of the application I would like to verify with Everclear that my phone number belongs to me, and that I am able to receive text messages from the Everclear service. I would also like to be given confirmation from Everclear when my phone number has been verified.
+As a user of the application I would like to verify with Everclear that my phone number belongs to me, and that I am able to receive text messages from the Everclear service. I would also like to receive confirmation from Everclear when my phone number has been verified.
 
 ### Acceptance Criteria
 * Users who provide a valid phone number receive a text message with verification instructions.
@@ -35,7 +35,7 @@ As a user of the application I would like to verify with Everclear that my phone
 ## Followup Questions
 Please answer the following questions when you submit your code:
 
-* How long did you spend on the coding test?
+* How long did you spend on the coding challenge?
 * What would you add to your solution if you had more time? Note - you should feel free to add comments in the code to point out these opportunities as well .
 
 ## Setup Instructions
