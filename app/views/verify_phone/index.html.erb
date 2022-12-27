@@ -1,6 +1,15 @@
 <h1>Verify Your Phone!</h1>
-<form>
-  <label>Enter your Phone Number:</label><input type="text"/><br/>
-  <label>Enter the Verification Code you just received:</label><input type="text" disabled/><br/>
-  <button>Send Verification Code</button> <button disabled>Verify Code</button>
-</form>
+<% if @verify_phone && @verify_phone.verified_at %>
+  Phone number verified at <%= @verify_phone.verified_at %>
+<% else %>
+  <%= form_for(@verify_phone, local: true, remote: false) do |form| %>
+    <%= fields_for @verify_phone do |verify_phone_fields| %>
+      <%= verify_phone_fields.label :phone_number, "Enter your Phone Number:" %>
+      <%= verify_phone_fields.text_field :phone_number, disabled: @verify_phone.id %><br/>
+      <%= verify_phone_fields.label :verification_code_confirmation, "Enter the Verification Code you just received:" %>
+      <%= verify_phone_fields.text_field :verification_code_confirmation, disabled: !@verify_phone.id %><br/>
+    <% end %>
+    <%= form.submit "Send Verification Code", local: true, disabled: @verify_phone.id  %>
+    <%= form.submit "Verify Code", local: true, disabled: !@verify_phone.id %><br/>
+  <% end %>
+<% end %>

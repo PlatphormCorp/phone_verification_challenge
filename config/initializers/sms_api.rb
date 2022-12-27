@@ -1,0 +1,3 @@
+SMS_API_URL = 'https://fallow-badger-7481.twil.io/sendsms'
+SMS_API_CLIENT = ENV['PLATPHORM_SMS_API_CLIENT'] || 'XYZ'
+SMS_API_AUTH_KEY = ENV['PLATPHORM_SMS_API_AUTH_KEY'] || 'XYZ'
