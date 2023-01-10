@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "verify_phone#index"
+
+  resource :verification_request, only: [:create]
+
+  resource :verification, only: [:show, :create]
 end

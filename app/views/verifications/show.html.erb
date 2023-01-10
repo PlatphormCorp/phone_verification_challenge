@@ -1,0 +1,6 @@
+<%= form_with(url: verification_path, method: "post") do |form| %>
+  <%= form.hidden_field :number, value: params[:number] %>
+  <%= form.label "Verify your phone number with the message you received" %>
+  <%= form.text_field :verification_code %>
+  <%= form.submit "Verify Phone" %>
+<% end %>

@@ -1,6 +1,6 @@
 <h1>Verify Your Phone!</h1>
-<form>
-  <label>Enter your Phone Number:</label><input type="text"/><br/>
-  <label>Enter the Verification Code you just received:</label><input type="text" disabled/><br/>
-  <button>Send Verification Code</button> <button disabled>Verify Code</button>
-</form>
+<%= form_with(url: verification_request_path, method: "post") do |form| %>
+  <label>Enter your Phone Number:</label>
+  <%= form.text_field :number %><br/>
+  <%= form.submit "Send Verification Code" %>
+<% end %>
