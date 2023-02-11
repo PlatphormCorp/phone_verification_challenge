@@ -15,19 +15,68 @@
  */
 
 #application_container {
-    max-width: 1200px;
+    position: relative;
+    max-width: 700px;
     margin: 20px auto;
-    >h2 {
+    background: #f4f4f4;
+    border-radius: 4px;
+    padding: 25px 50px;
+    box-shadow: 0 3px 10px rgb(150, 150, 150);
+    & h2 {
         text-align: center;
+        font-size: 1.75em;
+        margin-bottom: 2em;
     }
 }
 
+#application_logo {
+    width: 100px;
+    position: absolute;
+    top: 2em;
+    left: 2em;
+}
+
 input {
+    width: 250px;
     padding: 8px 12px;
     margin: 10px 0;
+    &[type="checkbox"] {
+        width: auto;
+    }
+    &[type="submit"] {
+        width: 278px;
+        background: #dfdfdf;
+        border-color: #cfcfcf;
+        border-radius: 4px;
+    }
+    &[type="button"] {
+        width: 278px;
+        background: #dfdfdf;
+        border-color: #cfcfcf;
+        border-radius: 4px;
+    }
+}
+
+.link_button {
+    display: block;
+    font-size: 2em;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background: #dfdfdf;
+    border-color: #cfcfcf;
+    border-radius: 50%;
+    text-decoration: none;
+    color: black;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 2px 2px 2px #969696;
 }
 
 select {
+    width: 278px;
     padding: 8px 12px;
     margin: 10px 0;
 }
@@ -35,15 +84,11 @@ select {
 #new_user {
     width: 400px;
     margin: 20px auto;
-    & input {
-        width: 250px;
-        &[type="checkbox"] {
-            width: auto;
-        }
-        &[type="submit"] {
-            width: 278px;
-        }
-    }
+}
+
+#new_phone_number {
+    width: fit-content;
+    margin: 20px auto;
 }
 
 #devise_links {
@@ -56,6 +101,10 @@ select {
 
 #phone_numbers {
     margin: 20px auto;
+    & table {
+        width: 400px;
+        margin: 0 auto 2em;
+    }
     & th {
         width: 100px;
         align: left;

@@ -1,9 +1,11 @@
-<h1>New phone number</h1>
+<h2>New Phone Number</h2>
 
-<%= render "form", phone_number: @phone_number %>
+<div id='new_phone_number'>
+  <%= render "form", phone_number: @phone_number %>
+</div>
 
 <br>
 
 <div>
-  <%= link_to "Back to phone numbers", phone_numbers_path %>
+  <%= link_to "<", phone_numbers_path, class: 'link_button' %>
 </div>
