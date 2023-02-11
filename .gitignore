@@ -36,3 +36,5 @@
 
 # Ignore rubymine project
 .idea
+
+.env

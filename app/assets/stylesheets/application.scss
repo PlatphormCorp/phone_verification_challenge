@@ -13,3 +13,55 @@
  *= require_tree .
  *= require_self
  */
+
+#application_container {
+    max-width: 1200px;
+    margin: 20px auto;
+    >h2 {
+        text-align: center;
+    }
+}
+
+input {
+    padding: 8px 12px;
+    margin: 10px 0;
+}
+
+select {
+    padding: 8px 12px;
+    margin: 10px 0;
+}
+
+#new_user {
+    width: 400px;
+    margin: 20px auto;
+    & input {
+        width: 250px;
+        &[type="checkbox"] {
+            width: auto;
+        }
+        &[type="submit"] {
+            width: 278px;
+        }
+    }
+}
+
+#devise_links {
+    width: 400px;
+    margin: 20px auto;
+    & a {
+        display: block;
+    }
+}
+
+#phone_numbers {
+    margin: 20px auto;
+    & th {
+        width: 100px;
+        align: left;
+        text-align: left;
+    }
+    & td {
+        width: 100px;
+    }
+}
