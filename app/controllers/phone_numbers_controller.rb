@@ -25,7 +25,10 @@ class PhoneNumbersController < ApplicationController
 
     respond_to do |format|
       if @phone_number.save
-        format.html { redirect_to phone_number_url(@phone_number), notice: "Phone number was successfully created." }
+        service = EverclearApiService.new
+        message = "Your phone number has been verfied.  Thank you."
+        api_response = service.send_sms(phone_number: @phone_number.number, message: message)    
+        format.html { redirect_to phone_number_url(@phone_number), notice: "Phone number was successfully created and verified." }
         format.json { render :show, status: :created, location: @phone_number }
       else
         format.html { render :new, status: :unprocessable_entity }
