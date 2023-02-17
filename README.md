@@ -37,6 +37,8 @@ Please answer the following questions when you submit your code:
 
 * How long did you spend on the coding challenge?
 It took me about 3-4 hours.  I took my time and thought a few things through and went back and forth on names and routes.  I was having some real fun with it until I looked up at the clock.
+
+I spent a bit of time grooming the commit log too.  I really believe in organized commits that leave a paper trail that link back to whatever project management software you are using. It helps future readers undertand context and why some decisions were made.  Future me always wants to ask past me questions, but that's impossible, so  a good paper trail is the next best thing.
 * What would you add to your solution if you had more time? Note - you should feel free to add comments in the code to point out these opportunities as well .
 I really would have liked to take the time to use Turbo. I disabled Turbo for the sake of getting all the work done in a timely manner.  I've been real curious aobut it and have played with it before, but I definitely would not have been able to get this done in a timely manner if I decided to try to use it. I suspect using Turbo frames to mount all the views would have made for a slick SPA experience.
 
