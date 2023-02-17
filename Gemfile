@@ -36,6 +36,8 @@ gem "faraday", "~> 2.7"
 # We can remove it when we upgrade to ruby 3
 gem "net-http", "~> 0.3"
 
+gem 'phonelib', "~> 0.7.7"
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
@@ -75,6 +77,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "shoulda-matchers"
 end
 
 gem "rspec", "~> 3.12"

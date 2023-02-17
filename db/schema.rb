@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_02_15_044139) do
   create_table "phones", force: :cascade do |t|
     t.string "number", null: false
-    t.datetime "verification_expiration", null: false
+    t.datetime "verification_expiration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["number"], name: "index_phones_on_number"
