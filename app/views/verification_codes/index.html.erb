@@ -1,0 +1,5 @@
+<%= form_with(model: VerificationCode.new, method: :post, url: verify_phone_verification_codes_path(@phone) ) do |form| %>
+  <label>Enter your verification code for <%= @phone.number %>:</label>
+  <%= form.text_field :code %><br/>
+  <%= form.submit "Submit" %>
+<% end %>

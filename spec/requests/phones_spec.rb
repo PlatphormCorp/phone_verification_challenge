@@ -16,7 +16,7 @@ RSpec.describe "Phones", type: :request do
       it "sets a success flash message" do
         allow(SmsPhoneVerification).to receive(:new).and_return(sms_phone_verification_double)
 
-        post "/", params: { phone: { number: phone_number } }
+        expect(post "/", params: { phone: { number: phone_number } }).to redirect_to(phone_verification_codes_path(phone_id: Phone.find_by(number: phone_number).id))
         expect(flash[:success]).to eq("Verification code sent.")
       end
     end

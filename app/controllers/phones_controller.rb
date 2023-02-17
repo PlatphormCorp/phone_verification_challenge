@@ -11,9 +11,10 @@ class PhonesController < ApplicationController
     if @phone.valid?
       if SmsPhoneVerification.new(@phone).send_verification
         flash[:success] = SUCCESS_FLASH
-        redirect_to '/' && return
+        redirect_to phone_verification_codes_url(@phone)
       else
         flash[:error] = ERROR_FLASH
+        render :new
       end
     else
       render :new

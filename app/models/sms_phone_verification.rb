@@ -15,6 +15,8 @@ class SmsPhoneVerification
 
     # TODO: The API we were provided with did not come with comprehensive
     # docs, so we're going to go out on a limb here and use an HTTP POST
-    api.connection.post.status == 200
+    response = api.connection.post
+    Rails.logger.info "Sending verification code to #{phone.number} via SMS. Response: #{response.inspect}"
+    response.status == 200
   end
 end

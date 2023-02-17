@@ -25,6 +25,7 @@ class ApiConnectionManager
   end
 
   def configure_connection
+    Rails.logger.info "Configuring connection to #{url} with params: #{base_params.except(:auth_code)}}"
     Faraday.new(url: url, params: base_params)
   end
 

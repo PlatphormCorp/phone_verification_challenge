@@ -1,16 +1,4 @@
-<% if @phone.errors.any? %>
-  <div style="color: red" data-test-id="errors">
-    <h2>
-      There was <%= pluralize(@phone.errors.count, "issue") %> with your phone number:
-    </h2>
-
-    <ul>
-      <% @phone.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: 'shared/errors', locals: { object: @phone } %>
 
 <%= form_with(model: @phone) do |form| %>
   <label>Enter your Phone Number:</label>
