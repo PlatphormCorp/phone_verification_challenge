@@ -32,7 +32,9 @@ gem "redis", "~> 4.0"
 
 # Use faraday to make HTTP requests
 gem "faraday", "~> 2.7"
-gem "net-http"
+# This is needed to load dependencies of faraday correctly in ruby 2
+# We can remove it when we upgrade to ruby 3
+gem "net-http", "~> 0.3"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
