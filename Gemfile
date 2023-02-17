@@ -78,6 +78,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "shoulda-matchers"
+  gem "rails-controller-testing", "~> 1.0"
 end
 
 gem "rspec", "~> 3.12"

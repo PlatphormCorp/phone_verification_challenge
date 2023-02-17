@@ -1,0 +1,19 @@
+<% if @phone.errors.any? %>
+  <div style="color: red" data-test-id="errors">
+    <h2>
+      There was <%= pluralize(@phone.errors.count, "issue") %> with your phone number:
+    </h2>
+
+    <ul>
+      <% @phone.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with(model: @phone) do |form| %>
+  <label>Enter your Phone Number:</label>
+  <%= form.text_field :number %><br/>
+  <%= form.submit "Send Verification Code" %>
+<% end %>

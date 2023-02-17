@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div data-turbo="false">
+      <h1>
+        Verify Your US or Canadian Phone Number!
+      </h1>
+
+      <p class="alert alert-error">
+        <%= flash[:error] %>
+      </p>
+
+      <p class="alert alert-success">
+        <%= flash[:success] %>
+      </p>
+        <%= yield %>
+    </div>
   </body>
 </html>

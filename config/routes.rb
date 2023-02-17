@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "verify_phone#index"
+  root "phones#new"
+
+  resources :phones, path: '/', only: [:new, :create, :update]
 end
