@@ -9,6 +9,7 @@ class VerificationCode < ApplicationRecord
     code = SecureRandom.hex(3)
     expires_at = Time.now + 5.minutes
 
+    # TODO: Figure out if we should expire old codes manually
     phone.verification_codes.create(code: code, expires_at: expires_at)
   end
 end
