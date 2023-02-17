@@ -44,7 +44,7 @@ class ApiConnectionManager
   def base_params
     {
       client: @client,
-      auth_code: @auth_code,
+      authorization_code: @auth_code,
       phone_number: @phone_number,
       message: @message
     }
