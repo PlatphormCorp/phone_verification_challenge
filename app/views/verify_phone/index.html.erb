@@ -1,6 +1,21 @@
 <h1>Verify Your Phone!</h1>
-<form>
-  <label>Enter your Phone Number:</label><input type="text"/><br/>
-  <label>Enter the Verification Code you just received:</label><input type="text" disabled/><br/>
-  <button>Send Verification Code</button> <button disabled>Verify Code</button>
-</form>
+<% if @verify_phone.errors.present? %>
+  <% @verify_phone.errors.full_messages.each do |error| %>
+    <div class="error-message"><%= error %></div>
+  <% end %>
+  <br/>
+<% end %>
+<%= form_for @verify_phone do |form| %>
+  <label>Enter your Phone Number:</label>
+  <%= form.text_field :phone_number, disabled: !@verify_phone.new_record? %>
+  <br/>
+  <label>Enter the Verification Code you just received:</label>
+  <%= form.text_field :verification_code, value: '', disabled: @verify_phone.new_record? %>
+  <br/>
+  <%= form.submit "Send Verification Code", disabled: !@verify_phone.new_record? %>
+  <%= form.submit "Verify Code", disabled: @verify_phone.new_record? %>
+<% end %>
+<br/>
+<% unless @verify_phone.new_record? %>
+<%=  link_to "back to verification request page", new_verify_phone_path  %>
+<% end %>
