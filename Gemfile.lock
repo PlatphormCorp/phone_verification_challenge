@@ -102,6 +102,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -144,6 +148,7 @@ GEM
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    phonelib (0.7.7)
     popper_js (2.11.6)
     pry (0.14.2)
       coderay (~> 1.1)
@@ -206,6 +211,7 @@ GEM
       rspec-mocks (~> 3.11)
       rspec-support (~> 3.11)
     rspec-support (3.12.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -265,8 +271,10 @@ DEPENDENCIES
   capybara
   debug
   factory_bot_rails (~> 6.2.0)
+  faraday
   importmap-rails
   jbuilder
+  phonelib
   pry-rails (~> 0.3.9)
   puma (~> 5.0)
   rails (~> 7.0.4)

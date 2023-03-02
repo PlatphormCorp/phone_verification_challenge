@@ -1,16 +1,24 @@
-<main class="form-signin">
+<% content_for :head do %>
+  <%= javascript_import_module_tag "verify_phone" %>
+<% end %>
+<%= yield(:head) %>
+
+<main class="form-verification">
   <form>
-    <h1 class="h3 mb-3 fw-normal">Verify Your Phone!</h1>
+    <input type="hidden" value="<%= form_authenticity_token %>" id="auth-token">
+    <input type="hidden" id="phone_id">
+    <h1 class="h3 mb-3 fw-normal" id="prompt">Verify Your Phone!</h1>
     <div class="form-floating mt-3">
-      <input type="text" class="form-control" id="phone-number" placeholder="555-555-5555">
+      <input type="text" class="form-control" id="phone-number" name="phone_number" placeholder="555-555-5555">
       <label for="phone-number">Enter your Phone Number</label>
     </div>
     <div class="form-floating mt-3">
-      <input type="text" class="form-control" id="verification-code" placeholder="xxxxxx" disabled>
-      <label for="verification-code">Enter the Verification Code you just received:</label>
+      <input type="text" class="form-control" id="verification-token" placeholder="xxxxxx" disabled>
+      <label for="verification-code">Enter the Verification Code you just received</label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Send Verification Code</button>
-    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit" disabled>Verify Code</button>
+    <!-- add retry button/form refresh -->
+    <button class="w-100 btn btn-lg btn-primary mt-3" id="submit-phone-number" type="button">Send Verification Code</button>
+    <button class="w-100 btn btn-lg btn-primary mt-3" id="submit-verification-code" type="button" disabled>Verify Code</button>
   </form>
   <p class="mt-5 mb-3 text-muted">© 2017–2023</p>
 </main>
