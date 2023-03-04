@@ -74,3 +74,5 @@ end
 gem "rspec", "~> 3.12"
 
 gem "rspec-rails", "~> 6.0"
+
+gem "faraday"
