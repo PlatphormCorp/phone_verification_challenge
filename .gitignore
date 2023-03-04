@@ -36,3 +36,8 @@
 
 # Ignore rubymine project
 .idea
+
+# Ignore .env and .env.local
+.env
+.env.development.local
+.env.test.local
