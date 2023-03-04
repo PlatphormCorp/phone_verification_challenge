@@ -1,7 +1,7 @@
-class PhoneNumber < ApplicationRecord
+class VerifyPhone < ApplicationRecord
   before_create :set_verification_code
 
-  validates :number, presence: true
+  validates :number, presence: true, length: { is: 10 }, numericality: true
 
   def set_verification_code
     self.verification_code = rand(10**6).to_s

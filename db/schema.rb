@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_041541) do
-  create_table "phone_numbers", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_190406) do
+  create_table "verify_phones", force: :cascade do |t|
     t.integer "number", null: false
     t.string "verification_code"
     t.boolean "verified", default: false

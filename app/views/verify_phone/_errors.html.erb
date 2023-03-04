@@ -1,0 +1,7 @@
+<% if @verify_phone.errors.any? %>
+  <div class="errors">
+    <% @verify_phone.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>

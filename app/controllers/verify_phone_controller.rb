@@ -1,41 +1,44 @@
 class VerifyPhoneController < ApplicationController
-  def index
-    @phone_number = PhoneNumber.new
+  def new
+    @verify_phone = VerifyPhone.new
   end
 
-  def code
-    @phone_number = PhoneNumber.find_by(number: phone_number_params[:number])
-    @phone_number ||= PhoneNumber.create(number: phone_number_params[:number])
+  def create
+    @verify_phone = VerifyPhone.find_or_initialize_by(number: verify_phone_params[:number])
 
-    if @phone_number.verified
+    if @verify_phone.verified
       flash[:notice] = 'Phone number has already been verified.'
       return redirect_to root_path
     end
 
-    if @phone_number.save && SmsSender.new(@phone_number).send_verification_code
+    if @verify_phone.save && SmsSender.new(@verify_phone).send_verification_code
       respond_to do |format|
         format.turbo_stream
       end
     else
-      render :index
+      render :new, status: :unprocessable_entity
     end
   end
 
-  def verify
-    @phone_number = PhoneNumber.find_by(number: phone_number_params[:number])
+  def edit
+    @verify_phone = VerifyPhone.find_by(number: verify_phone_params[:number])
+  end
 
-    if @phone_number.validate_code(phone_number_params[:verification_code])
-      @phone_number.update_attribute(:verified, true)
+  def update
+    @verify_phone = VerifyPhone.find_by(number: verify_phone_params[:number])
+
+    if @verify_phone.validate_code(verify_phone_params[:verification_code])
+      @verify_phone.update_attribute(:verified, true)
       flash[:notice] = 'Your phone number has been verified.'
-      redirect_to root_path
+      redirect_to new_verify_phone_path
     else
-      render :verify, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
   private
 
-  def phone_number_params
-    params.require(:phone_number).permit(:number, :verification_code)
+  def verify_phone_params
+    params.require(:verify_phone).permit(:number, :verification_code)
   end
 end
