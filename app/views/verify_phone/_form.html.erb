@@ -1,0 +1,3 @@
+<%= form_with model: @phone_number, url: "/verification_code" do |f| %>
+  <%= render partial: 'fields', locals: { f: f, verify: false } %>
+<% end %>

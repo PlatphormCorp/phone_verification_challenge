@@ -1,0 +1,12 @@
+<% if @phone_number.errors.any? %>
+  <div class="errors">
+    <% @phone_number.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_with model: @phone_number, url: "/verify_code", method: :post do |f| %>
+  <%= f.hidden_field :number, value: @phone_number.number %>
+  <%= render partial: 'fields', locals: { f: f, verify: true } %>
+<% end %>
