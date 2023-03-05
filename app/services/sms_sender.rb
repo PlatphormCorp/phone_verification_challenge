@@ -1,16 +1,16 @@
 class SmsSender
-  attr_reader :phone_number
+  attr_reader :verify_phone
 
-  def initialize(phone_number)
-    @phone_number = phone_number
+  def initialize(verify_phone)
+    @verify_phone = verify_phone
   end
 
   def send_verification_code
-    return false unless phone_number.verification_code
+    return false unless verify_phone.verification_code
 
-    message = "Please use the following code to verify your phone number: #{phone_number.verification_code}"
+    message = "Please use the following code to verify your phone number: #{verify_phone.verification_code}"
     response = client.post('/sendsms') do |req|
-      req.params['phone_number'] = phone_number.number
+      req.params['phone_number'] = verify_phone.number
       req.params['message'] = message
     end
 
