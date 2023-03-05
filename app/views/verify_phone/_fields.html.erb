@@ -1,0 +1,6 @@
+<%= f.label :number, "Enter your Phone Number:" %>
+<%= f.text_field :number, disabled: verify %><br />
+<%= f.label :verification_code, "Enter the Verification Code you just received:" %>
+<%= f.text_field :verification_code, value: '', disabled: !verify %></br>
+<%= f.submit "Send Verification Code", disabled: verify %>
+<%= f.submit "Verify Code", disabled: !verify %>

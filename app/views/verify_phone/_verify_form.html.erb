@@ -1,0 +1,6 @@
+<%= render partial: 'errors' %>
+
+<%= form_with model: @verify_phone do |f| %>
+  <%= f.hidden_field :number, value: @verify_phone.number %>
+  <%= render partial: 'fields', locals: { f: f, verify: true } %>
+<% end %>

@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.errors {
+  background-color: #ccc;
+  width: 10%;
+  padding: 1rem;
+  margin: 0.5rem;
+}

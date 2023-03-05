@@ -1,0 +1,5 @@
+<%= render partial: 'errors' %>
+
+<%= form_with model: @verify_phone do |f| %>
+  <%= render partial: 'fields', locals: { f: f, verify: false } %>
+<% end %>

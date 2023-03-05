@@ -40,6 +40,7 @@ gem "redis", "~> 4.0"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
+gem "dotenv-rails", groups: [:development, :test]
 gem "bootsnap", require: false
 
 # Use Sass to process CSS
@@ -69,8 +70,11 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "shoulda-matchers", "~> 5.0"
 end
 
 gem "rspec", "~> 3.12"
 
 gem "rspec-rails", "~> 6.0"
+
+gem "faraday"
