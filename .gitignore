@@ -16,6 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+.env
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -36,3 +37,4 @@
 
 # Ignore rubymine project
 .idea
+/node_modules
