@@ -5,7 +5,7 @@ class VerifyPhoneController < ApplicationController
   def create
     phone_number = params[:phoneNumber]
     verify_phone = VerifyPhone.find_or_initialize_by(number: phone_number)
-    puts "verify_phone in controller #{verify_phone.inspect}}"
+    puts "verify_phone: #{verify_phone.inspect}"
 
     if !verify_phone.valid?
       errors = verify_phone.errors.full_messages
@@ -15,8 +15,6 @@ class VerifyPhoneController < ApplicationController
     else
       verify_phone.generate_code
       ever_clear_verification = EverClearVerification.send_verification_challenge(verify_phone)
-      puts "ever_clear_verification: #{ever_clear_verification}"
-
       if ever_clear_verification
         verify_phone.pending!
         verify_phone.save
