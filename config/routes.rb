@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
   root "verify_phone#index"
+  post '/verify_phone', to: 'verify_phone#create'
+  post '/verify_phone/verification_code', to: 'verify_phone#verification_code'
 end
