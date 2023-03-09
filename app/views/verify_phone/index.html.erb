@@ -1,6 +1,36 @@
-<h1>Verify Your Phone!</h1>
-<form>
-  <label>Enter your Phone Number:</label><input type="text"/><br/>
-  <label>Enter the Verification Code you just received:</label><input type="text" disabled/><br/>
-  <button>Send Verification Code</button> <button disabled>Verify Code</button>
-</form>
+<div class="container">
+  <h1>Verify Your Phone!</h1>
+  <form class="row g-3" data-controller="verification">
+    <div class="col-md-6 mb-3">
+      <label for="phone-number" class="form-label">Enter your Phone Number:</label>
+      <input type="text" class="form-control" id="phone-number" data-verification-target="phoneNumber">
+      <div class="col-md-12">
+        <p class="text-danger" data-verification-target="error"></p>
+      </div>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="verification-code" class="form-label">Enter the Verification Code you just received:</label>
+      <input type="text" class="form-control" 
+      disabled
+      id="verification-code"  data-verification-target="verificationCode">
+    </div>
+    <div class="col-md-6 mt-3">
+      <button type="button" class="btn btn-primary" 
+      data-action="click->verification#sendVerificationCode">Send Verification Code</button>
+    </div>
+    <div class="col-md-6 mt-3">
+      <button type="submit" class="btn btn-primary"
+      disabled
+       data-action="click->verification#verifyCode"
+       data-verification-target="verificationCodeButton"
+       >Verify Code</button>
+    </div>
+    <div class="col-md-12">
+      <h1 class="text-success" data-verification-target="successVerified"></>
+      <h1 class="text-danger" data-verification-target="errorVerified"></>
+    </div>
+  </form>
+</div>
+
+
+
