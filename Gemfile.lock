@@ -88,9 +88,13 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
     erubi (1.11.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.1.5)
@@ -117,6 +121,7 @@ GEM
     mini_portile2 (2.8.0)
     minitest (5.16.3)
     msgpack (1.6.0)
+    multi_xml (0.6.0)
     net-imap (0.3.2)
       date
       net-protocol
@@ -238,6 +243,8 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv (~> 2.8)
+  httparty (~> 0.21.0)
   importmap-rails
   jbuilder
   puma (~> 5.0)
@@ -255,7 +262,7 @@ DEPENDENCIES
   webdrivers
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.7p221
 
 BUNDLED WITH
    2.1.4
