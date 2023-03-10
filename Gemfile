@@ -6,6 +6,7 @@ ruby "2.7.1"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -74,3 +75,10 @@ end
 gem "rspec", "~> 3.12"
 
 gem "rspec-rails", "~> 6.0"
+
+
+gem "faraday", "~> 2.7"
+
+gem "figaro", "~> 1.2"
+
+gem "factory_bot_rails", "~> 6.2"

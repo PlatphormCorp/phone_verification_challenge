@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  db:
+    platform: linux/x86_64
+    image: nouchka/sqlite3:latest
+    volumes:
+      - db-data:/var/lib/sqlite
+    environment:
+      SQLITE_DATABASE: /var/lib/sqlite/data.sqlite3
+    command: ["tail", "-f", "/dev/null"]
+  web:
+    platform: linux/x86_64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - gem-cache:/usr/local/bundle/gems
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+volumes:
+  db-data:
+  gem-cache:
