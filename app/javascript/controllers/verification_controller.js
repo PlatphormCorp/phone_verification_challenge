@@ -6,34 +6,35 @@ export default class extends Controller {
     "error", "successVerified", "verificationCodeButton", "errorVerified"
   ]
 
-  sendVerificationCode() {
+  async sendVerificationCode() {
     if (!this.validatePhoneNumber()) {
       return;
     }
     const phoneNumber = this.phoneNumberTarget.value
-    fetch('/verify_phone', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-      },
-      body: JSON.stringify({ phoneNumber: phoneNumber })
-    })
-    .then(response => response.json())
-    .then(data => {
+    try {
+      const response = await fetch('/verify_phone', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({ phoneNumber: phoneNumber })
+      })
+      const data = await response.json()
       if(data.status === "success" && data.message === 'already verified') {
         this.successVerifiedTarget.textContent = "Verification successful - you're all set";
         this.errorVerifiedTarget.textContent = ''
       } else if(data.status === "success") {
-        this.successVerifiedTarget.textContent = "";
+        this.successVerifiedTarget.textContent = "check phone for verification code";
         this.verificationCodeTarget.disabled = false;
         this.verificationCodeButtonTarget.disabled = false;
         this.errorTarget.textContent = "";
       } else {
         this.errorTarget.textContent = "Verification failed:" + data.errors + ". Please try again.";
       }
-    })
-    .catch(error => console.error(error))
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   validatePhoneNumber() {
@@ -49,20 +50,20 @@ export default class extends Controller {
   }
 
 
-    verifyCode(event) {
-      event.preventDefault()
-      const verificationCode = this.verificationCodeTarget.value
-      const phoneNumber = this.phoneNumberTarget.value
-      fetch('/verify_phone/verification_code', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
-      },
-      body: JSON.stringify({ phoneNumber: phoneNumber, verificationCode: verificationCode })
-    })
-    .then(response => response.json())
-    .then(data => {
+  async verifyCode(event) {
+    event.preventDefault()
+    const verificationCode = this.verificationCodeTarget.value
+    const phoneNumber = this.phoneNumberTarget.value
+    try {
+      const response = await fetch('/verify_phone/verification_code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({ phoneNumber: phoneNumber, verificationCode: verificationCode })
+      })
+      const data = await response.json()
       console.log(data)
       if(data.status === "success") {
         this.successVerifiedTarget.textContent = "Verification successful - you're all set";
@@ -71,7 +72,8 @@ export default class extends Controller {
         this.errorVerifiedTarget.textContent = "Verification failed. Please try again.";
         this.successVerifiedTarget.textContent = ''
       }
-    })
-    .catch(error => console.error(error))
+    } catch (error) {
+      console.error(error)
+    }
   }
 }

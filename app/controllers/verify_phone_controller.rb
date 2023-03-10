@@ -31,7 +31,7 @@ class VerifyPhoneController < ApplicationController
       verify_phone.verified!
       render json: { status: 'success' }
     else
-      render json: { errors: ['Verificaiton code is invalid'] }, status: :unprocessable_entity
+      render json: { errors: ['Verification code is invalid'] }, status: :unprocessable_entity
     end
   end
 end
