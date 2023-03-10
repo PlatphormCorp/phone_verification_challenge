@@ -5,8 +5,6 @@ class VerifyPhoneController < ApplicationController
   def create
     phone_number = params[:phoneNumber]
     verify_phone = VerifyPhone.find_or_initialize_by(number: phone_number)
-    puts "verify_phone: #{verify_phone.inspect}"
-
     if !verify_phone.valid?
       errors = verify_phone.errors.full_messages
       render json: { errors: [errors] }, status: :unprocessable_entity

@@ -21,7 +21,6 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data)
       if(data.status === "success" && data.message === 'already verified') {
         this.successVerifiedTarget.textContent = "Verification successful - you're all set";
         this.errorVerifiedTarget.textContent = ''
